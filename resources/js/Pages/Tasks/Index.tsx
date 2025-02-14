@@ -16,7 +16,7 @@ import TitleBar from "@/Components/TitleBar";
 import CardSimple from "@/Components/ui/CardSimple";
 
 export default function Index({tasks} : {tasks:Task[]}) {
-console.log(tasks)
+
     return (
         <MainPageLayout title={'All Tasks'}>
             <CardSimple>

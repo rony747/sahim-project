@@ -11,20 +11,20 @@ export default function RightSidebar({task}: { task: Task }) {
                     <div className="space-y-4">
                         {task.status && <div className="flex items-center text-gray-600">
                             <CheckCircle2 className="w-5 h-5 mr-3" />
-                            <span>Status: {task.status}</span>
+                            <span>Status: {task.status_label}</span>
                         </div>}
                         {task.priority && <div className="flex items-center text-gray-600">
                             <Tag className="w-5 h-5 mr-3" />
-                            <span>Priority: {task.priority}</span>
+                            <span>Priority: {task.priority_label}</span>
                         </div>}
                         {task.client.name && <div className="flex items-center text-gray-600">
                             <UserCircle className="w-5 h-5 mr-3" />
                             <span>Client: {task.client.name}</span>
                         </div>}
-                        {task.progress_percent && <div className="flex items-center text-gray-600">
+                        <div className="flex items-center text-gray-600">
                             <Clock className="w-5 h-5 mr-3" />
                             <span>Progress: {task.progress_percent}%</span>
-                        </div>}
+                        </div>
 
                     </div>
                 </div>

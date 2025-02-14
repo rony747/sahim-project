@@ -32,7 +32,6 @@ class TaskFactory extends Factory
           'client_id' => Client::factory(),
           'user_id' => 1,
           'position' => fake()->numberBetween(0, 100),
-          'estimated_minutes' => fake()->optional(0.8)->numberBetween(15, 480),
           'progress_percent' => fake()->numberBetween(0, 100),
         ];
     }

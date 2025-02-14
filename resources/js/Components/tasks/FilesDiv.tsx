@@ -1,10 +1,18 @@
 import {Download, ExternalLink, FileIcon, MoreHorizontal, Upload} from "lucide-react";
 
-export default function FilesDiv() {
+export default function FilesDiv(
+    {
+        files
+    }
+) {
+function dateFormat(date :string) {
+    return new Date(date);
+}
+console.log(files)
     return (
         <>
+            {files &&  <div className="bg-white rounded-lg shadow-sm p-6">
 
-            <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-semibold text-gray-900">Files</h2>
                     <div className="flex items-center space-x-2">
@@ -30,38 +38,39 @@ export default function FilesDiv() {
                         </thead>
                         <tbody className="divide-y divide-gray-200">
 
-                            <tr className="hover:bg-gray-50">
-                                <td className="px-3 py-4 whitespace-nowrap">
-                                    <div className="flex items-center">
-                                        <FileIcon className="w-5 h-5 text-gray-400 mr-3" />
-                                        <span className="text-sm text-gray-900">File Name.pdf</span>
-                                    </div>
-                                </td>
-                                <td className="px-3 py-4 whitespace-nowrap">
-                                    <span className="text-sm text-gray-500">2.5 MB</span>
-                                </td>
-                                <td className="px-3 py-4 whitespace-nowrap">
-                                    <span className="text-sm text-gray-500">2024-03-28</span>
-                                </td>
-                                <td className="px-3 py-4 whitespace-nowrap text-right">
-                                    <div className="flex items-center justify-end space-x-2">
-                                        <button className="p-1 hover:bg-gray-100 rounded">
-                                            <Download className="w-4 h-4 text-gray-500" />
-                                        </button>
-                                        <button className="p-1 hover:bg-gray-100 rounded">
-                                            <ExternalLink className="w-4 h-4 text-gray-500" />
-                                        </button>
-                                        <button className="p-1 hover:bg-gray-100 rounded">
-                                            <MoreHorizontal className="w-4 h-4 text-gray-500" />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                        {files?.map(file=><tr key={file.id} className="hover:bg-gray-50">
+                            <td className="px-3 py-4 whitespace-nowrap">
+                                <div className="flex items-center">
+                                    <FileIcon className="w-5 h-5 text-gray-400 mr-3" />
+                                    <span className="text-sm text-gray-900">{file.file_name}</span>
+                                </div>
+                            </td>
+                            <td className="px-3 py-4 whitespace-nowrap">
+                                <span className="text-sm text-gray-500">{(file.file_size /1024 /1024).toFixed(2)} MB</span>
+                            </td>
+                            <td className="px-3 py-4 whitespace-nowrap">
+                                <span className="text-sm text-gray-500">{dateFormat(file.created_at).toDateString()}</span>
+                            </td>
+                            <td className="px-3 py-4 whitespace-nowrap text-right">
+                                <div className="flex items-center justify-end space-x-2">
+                                    <button className="p-1 hover:bg-gray-100 rounded">
+                                        <Download className="w-4 h-4 text-gray-500" />
+                                    </button>
+                                    <button className="p-1 hover:bg-gray-100 rounded">
+                                        <ExternalLink className="w-4 h-4 text-gray-500" />
+                                    </button>
+                                    <button className="p-1 hover:bg-gray-100 rounded">
+                                        <MoreHorizontal className="w-4 h-4 text-gray-500" />
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>)}
 
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div>}
+
         </>
     )
 }

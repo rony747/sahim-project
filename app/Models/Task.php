@@ -21,6 +21,9 @@ class Task extends Model
   public  function client(){
     return $this->belongsTo(Client::class);
   }
+  public function attachments(){
+    return $this->hasMany(Attachment::class);
+  }
   protected $casts = [
     'status' => TaskStatus::class,
     'priority' => TaskPriority::class

@@ -28,7 +28,6 @@ return new class extends Migration {
       $table -> foreignId('client_id') -> nullable() -> constrained('clients')->onDelete('cascade');
       $table -> foreignId('user_id') -> nullable() -> constrained('users')->onDelete('cascade');
       $table -> unsignedInteger('position') -> default(0);
-      $table -> unsignedInteger('estimated_minutes') -> nullable();
       $table -> unsignedTinyInteger('progress_percent') -> default(0);
       $table -> timestamps();
     });

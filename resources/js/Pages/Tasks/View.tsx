@@ -8,6 +8,7 @@ import RightSidebar from "@/Components/tasks/RightSidebar";
 
 
 export default function Index({task}: { task: Task }) {
+
     return (
         <MainPageLayout title={task.title}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -16,7 +17,7 @@ export default function Index({task}: { task: Task }) {
                     {/* Description */}
                     <DescriptionDiv task={task} />
                     {/* Files Section */}
-                    <FilesDiv />
+                    <FilesDiv files={task.attachments} />
                     {/* Checklist */}
                     <CheckListDiv />
                     {/* Comments */}
