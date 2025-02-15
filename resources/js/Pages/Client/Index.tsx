@@ -10,9 +10,10 @@ import {
 } from "@/Components/ui/table"
 import {Trash2} from "lucide-react";
 import {Client} from "@/types/global";
-import {useForm} from "@inertiajs/react";
+import {Link, useForm} from "@inertiajs/react";
 import {toast} from "@/hooks/use-toast";
 import CardSimple from "@/Components/ui/CardSimple";
+import {Button} from "@/Components/ui/button";
 
 export default function Index({clients}:{clients:Client[]}) {
     const { delete: destroy, processing } = useForm()
@@ -34,7 +35,7 @@ export default function Index({clients}:{clients:Client[]}) {
         }
     }
     return (
-        <MainPageLayout title={'All Clients'}>
+        <MainPageLayout title={'All Clients'} button={<Button asChild><Link href="/client/create">Add New Client</Link></Button>}>
             <CardSimple>
                 <Table className={'w-full'}>
                     <TableCaption>A list of your recent invoices.</TableCaption>

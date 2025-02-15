@@ -14,11 +14,12 @@ import {Progress} from "@/Components/ui/progress";
 import {Link} from "@inertiajs/react";
 import TitleBar from "@/Components/TitleBar";
 import CardSimple from "@/Components/ui/CardSimple";
+import {Button} from "@/Components/ui/button";
 
 export default function Index({tasks} : {tasks:Task[]}) {
 
     return (
-        <MainPageLayout title={'All Tasks'}>
+        <MainPageLayout title={'All Tasks'} button={<Button asChild><Link href="/tasks/create">Add New Task</Link></Button>}>
             <CardSimple>
                 <Table className={'w-full'}>
                     <TableCaption>A list of your recent invoices.</TableCaption>

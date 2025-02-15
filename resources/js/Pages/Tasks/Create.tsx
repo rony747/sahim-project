@@ -59,7 +59,7 @@ export default function Create({statuses, priorities, clients}: { statuses: Enum
                         <div className={'grid grid-cols-1 lg:grid-cols-3 gap-4 '}>
                             <div>
                                 <Label htmlFor={'status'}>Status</Label>
-                                <Select defaultValue={data.status} onValueChange={e => setData('status', e)}>
+                                <Select defaultValue={`todo`} onValueChange={e => setData('status', e)}>
                                     <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Status" />
                                     </SelectTrigger>
@@ -73,7 +73,7 @@ export default function Create({statuses, priorities, clients}: { statuses: Enum
                             </div>
                             <div>
                                 <Label htmlFor={'priority'}>Priority</Label>
-                                <Select defaultValue={data.priority} onValueChange={e => setData('priority', e)}>
+                                <Select defaultValue={`low`} onValueChange={e => setData('priority', e)}>
                                     <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Select a value" />
                                     </SelectTrigger>
@@ -123,7 +123,7 @@ export default function Create({statuses, priorities, clients}: { statuses: Enum
                             {/*    onFilesSelected={(files) => setData('files', files)}*/}
                             {/*    error={errors.files} */}
                             {/*/>*/}
-                            <Input type={'file'} multiple onChange={e => setData('files', e.target.files)} />
+                            <Input type={'file'} multiple onChange={e => setData('files', e.target.files ? Array.from(e.target.files) : [])} />
                             <FormErrors errors={errors.files} />
                         </div>
                         <Button type="submit" disabled={processing} className={'w-48'}>Add New Task</Button>

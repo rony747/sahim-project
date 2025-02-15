@@ -1,8 +1,11 @@
 import {Download, ExternalLink, FileIcon, MoreHorizontal, Upload} from "lucide-react";
+import {TaskFiles} from "@/types/global";
 
 export default function FilesDiv(
     {
         files
+    }:{
+        files:TaskFiles[]
     }
 ) {
 function dateFormat(date :string) {
@@ -11,7 +14,7 @@ function dateFormat(date :string) {
 console.log(files)
     return (
         <>
-            {files &&  <div className="bg-white rounded-lg shadow-sm p-6">
+            {files.length > 0 &&  <div className="bg-white rounded-lg shadow-sm p-6">
 
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-semibold text-gray-900">Files</h2>

@@ -56,3 +56,16 @@ export type User = {
 export type Enums = {
     [key: string]: string;
 }
+export type TaskFiles= {
+    id: number,
+    task_id: number,
+    client_id: number,
+    created_at: string,
+    file_name: string,
+    file_url: string,
+    file_type: string,
+    file_size: number,
+    updated_at: string,
+    user_id: number,
+
+}
